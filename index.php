@@ -169,9 +169,7 @@ switch ($action) {
         $return['message'] = "Invalid action specified.";
 }
 
-?>
-
-<!doctype html>
+?><!DOCTYPE html>
 <html>
 <head>
     <title>SolusVM-Status</title>
@@ -183,13 +181,13 @@ switch ($action) {
     <h1>SolusVM-Status</h1>
     <hr/>
 
-    <?php if ($return['error'] == 1) { ?>
+    <?php if ($return['error'] == 1): ?>
         <div class="alert alert-danger" role="alert"><?php echo $return['message']; ?></div>
 
         <a class="btn btn-default btn-block" href="?action=info" role="button">Return to status page</a>
-    <?php } else { ?>
+    <?php else: ?>
 
-        <?php if ($action == "info") { ?>
+        <?php if ($action == "info"): ?>
 
             <h3>Hostname</h3>
             <?php echo $return['hostname']; ?>
@@ -224,7 +222,7 @@ switch ($action) {
                 </div>
             </div>
 
-            <h3>Bandwith usage
+            <h3>Bandwidth usage
                 <small><?php echo humanFileSize($return['bw'][1]); ?> used of <?php echo humanFileSize(
                         $return['bw'][0]
                     ); ?></small>
@@ -243,30 +241,30 @@ switch ($action) {
                 </div>
 
                 <div class="panel-body">
-                    <?php if ($return['vmstat'] == "offline") { ?>
+                    <?php if ($return['vmstat'] == "offline"): ?>
                         <a class="btn btn-primary btn-block" href="?action=boot" role="button">Boot</a>
-                    <?php } else { ?>
+                    <?php else: ?>
                         <a class="btn btn-primary btn-block" href="?action=shutdown" role="button">Shutdown</a>
                         <a class="btn btn-primary btn-block" href="?action=reboot" role="button">Reboot</a>
                         <a class="btn btn-default btn-block" href="?action=info" role="button">Reload the page</a>
-                    <?php } ?>
+                    <?php endif; ?>
                 </div>
             </div>
 
-        <?php } ?>
+        <?php endif; ?>
 
-        <?php if ($action == "reboot" || $action == "boot" || $action == "shutdown") { ?>
+        <?php if ($action == "reboot" || $action == "boot" || $action == "shutdown"): ?>
 
-            <?php if ($return['error'] == 0) { ?>
+            <?php if ($return['error'] == 0): ?>
                 <div class="alert alert-success" role="alert"><?php echo $return['message']; ?></div>
-            <?php } ?>
+            <?php endif; ?>
 
             <a class="btn btn-default btn-block" href="?action=info" role="button">Return to status page</a>
 
-        <?php } ?>
+        <?php endif; ?>
 
 
-    <?php } ?>
+    <?php endif; ?>
     <footer style="margin: 20px 0; text-align: center;">
         <a href="https://github.com/cuonic/SolusVM-Status" target="_blank">SolusVM-Status</a> by Cuonic
     </footer>
