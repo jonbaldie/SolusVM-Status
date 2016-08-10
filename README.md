@@ -1,9 +1,3 @@
-I've forked cuonic's SolusVM Status file in PHP because I think it's a useful way of keeping tabs on your servers, and I think I can do a few things to improve it and help it to do more stuff.
-
---
-
-## cuonic's original readme:
-
 ## What is it ?
 SolusVM-Status is a quick way to check up on your SolusVM VPS to see if it is online, check out the memory / disk space / bandwith usage and quickly shutdown, reboot or boot the VPS without entering the SolusVM control panel.
 
