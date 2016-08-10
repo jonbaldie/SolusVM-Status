@@ -179,7 +179,7 @@ switch ($action) {
 <body>
 <div style="width: 90%; max-width: 800px; margin: 0 auto;">
     <h1>SolusVM-Status</h1>
-    <hr/>
+    <hr>
 
     <?php if ($return['error'] == 1): ?>
         <div class="alert alert-danger" role="alert"><?php echo $return['message']; ?></div>
@@ -253,7 +253,7 @@ switch ($action) {
 
         <?php endif; ?>
 
-        <?php if ($action == "reboot" || $action == "boot" || $action == "shutdown"): ?>
+        <?php if (in_array($action, ['reboot', 'boot', 'shutdown'])): ?>
 
             <?php if ($return['error'] == 0): ?>
                 <div class="alert alert-success" role="alert"><?php echo $return['message']; ?></div>
@@ -262,7 +262,6 @@ switch ($action) {
             <a class="btn btn-default btn-block" href="?action=info" role="button">Return to status page</a>
 
         <?php endif; ?>
-
 
     <?php endif; ?>
     <footer style="margin: 20px 0; text-align: center;">
